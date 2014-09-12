@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 1.9.2"
   s.rubygems_version = %q{1.3.7}
   s.add_dependency "money", "~> 6.3.0"
-  s.add_dependency "monetize", "~> 0.4.1"
+  s.add_dependency "monetize", ">= 0.4.1"
   s.add_development_dependency "minitest", ">=2.0"
   s.add_development_dependency 'pry'
   s.add_development_dependency "rr", ">=1.0.4"
