@@ -14,6 +14,7 @@ class Money
       OER_URL = 'http://openexchangerates.org/latest.json'
 
       attr_accessor :cache, :app_id
+      
       attr_reader :doc, :oer_rates, :rates_expiration, :ttl_in_seconds
 
       def ttl_in_seconds=(value)
@@ -93,9 +94,20 @@ class Money
         end
       end
 
+      def oer_source=(val)
+        @oer_source = val
+      end
+
+      def oer_source
+        @oer_source || OER_URL
+      end
+
       def source_url
-        raise NoAppId if app_id.nil? || app_id.empty?
-        "#{OER_URL}?app_id=#{app_id}"
+        if oer_source == OER_URL
+          "#{oer_source}?app_id=#{app_id}"
+        else
+          oer_source
+        end
       end
 
       def read_from_url
