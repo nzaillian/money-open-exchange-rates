@@ -68,6 +68,14 @@ class Money
         end
       end
 
+      def oer_source=(val)
+        @oer_source = val
+      end
+
+      def oer_source
+        @oer_source || OER_URL
+      end      
+
       protected
 
       # Store the provided text data by calling the proc method provided
@@ -92,14 +100,6 @@ class Money
         else
           nil
         end
-      end
-
-      def oer_source=(val)
-        @oer_source = val
-      end
-
-      def oer_source
-        @oer_source || OER_URL
       end
 
       def source_url
